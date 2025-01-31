@@ -258,7 +258,6 @@ public class MainJFrame extends javax.swing.JFrame {
     
         //Validate age
     try{
-        age = Integer.parseInt(this.ageTextField.getText());
         if(age < 18){
             JOptionPane.showMessageDialog(rootPane,"Age must be 18 or older. ", "Failed", HEIGHT);
             return;
@@ -273,7 +272,6 @@ public class MainJFrame extends javax.swing.JFrame {
         
        //Validate Phone number
     try {
-        phoneNumber = Integer.parseInt(this.phoneNumberTextField.getText());
         if (String.valueOf(phoneNumber).length() != 10) {
             JOptionPane.showMessageDialog(rootPane, "Phone number must be 10 digits.", "Invalid Phone Number", HEIGHT);
             return;
