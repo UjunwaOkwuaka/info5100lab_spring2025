@@ -84,7 +84,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         genderButtonGroup.add(femaleRadioButton);
         femaleRadioButton.setText("Female");
-        femaleRadioButton.setActionCommand("FEMALE");
+        femaleRadioButton.setActionCommand("F");
 
         submitButton.setText("Submit");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -214,14 +214,14 @@ public class MainJFrame extends javax.swing.JFrame {
         String lastName;
         String gender;
         int age;
-        int phoneNumber;
+        double phoneNumber;
         String email;
         
         firstName = this.firstNameTextField.getText();
         lastName = this.lastNameTextField.getText();
         gender = this.genderButtonGroup.getSelection().getActionCommand();
         age = Integer.parseInt(this.ageTextField.getText());
-        phoneNumber = Integer.parseInt(this.phoneNumberTextField.getText());
+        phoneNumber = Double.parseDouble(this.phoneNumberTextField.getText());
         email = this.emailTextField.getText();
         
         
@@ -298,6 +298,7 @@ public class MainJFrame extends javax.swing.JFrame {
         
         } catch (Exception e){
              JOptionPane.showMessageDialog(rootPane,"Oops something went wrong", "Failed!",HEIGHT);
+             System.out.println(e);
        }
     }//GEN-LAST:event_submitButtonActionPerformed
 

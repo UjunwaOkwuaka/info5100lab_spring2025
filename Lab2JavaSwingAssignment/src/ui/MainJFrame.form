@@ -231,7 +231,7 @@
               <ComponentRef name="genderButtonGroup"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Female"/>
-            <Property name="actionCommand" type="java.lang.String" value="FEMALE"/>
+            <Property name="actionCommand" type="java.lang.String" value="F"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="submitButton">
