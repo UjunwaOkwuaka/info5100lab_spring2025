@@ -214,14 +214,14 @@ public class MainJFrame extends javax.swing.JFrame {
         String lastName;
         String gender;
         int age;
-        double phoneNumber;
+        String phoneNumber;
         String email;
         
         firstName = this.firstNameTextField.getText();
         lastName = this.lastNameTextField.getText();
         gender = this.genderButtonGroup.getSelection().getActionCommand();
         age = Integer.parseInt(this.ageTextField.getText());
-        phoneNumber = Double.parseDouble(this.phoneNumberTextField.getText());
+        phoneNumber = this.phoneNumberTextField.getText();
         email = this.emailTextField.getText();
         
         
@@ -236,33 +236,26 @@ public class MainJFrame extends javax.swing.JFrame {
         if(firstName.isBlank()){
             JOptionPane.showMessageDialog(rootPane,"Please enter your first name.", "Oops!", HEIGHT);
             return;
-        } else {
-            JOptionPane.showMessageDialog(rootPane,"First Name: " + firstName, "Success!", HEIGHT);
         }
         
         //Validate last name
         if(lastName.isBlank()){
             JOptionPane.showMessageDialog(rootPane,"Please enter your last name.", "Oops!", HEIGHT);
             return;
-        } else {
-            JOptionPane.showMessageDialog(rootPane,"Last Name: " + lastName, "Success!", HEIGHT);
         }
 
         //Validate gender
         if(gender.isBlank()){
             JOptionPane.showMessageDialog(rootPane,"Please select your gender.", "Oops!", HEIGHT);
             return;
-        } else {
-            JOptionPane.showMessageDialog(rootPane,"Gender: " + gender, "Success!", HEIGHT);
         }
     
         //Validate age
     try{
+
         if(age < 18){
             JOptionPane.showMessageDialog(rootPane,"Age must be 18 or older. ", "Failed", HEIGHT);
             return;
-        } else {
-           JOptionPane.showMessageDialog(rootPane,"Age: " + age, "Success!", HEIGHT);
         }
     } catch (NumberFormatException ne) {
         JOptionPane.showMessageDialog(rootPane, "Please enter a valid age. ", "Failed!", HEIGHT);
@@ -271,25 +264,16 @@ public class MainJFrame extends javax.swing.JFrame {
         
         
        //Validate Phone number
-    try {
-        if (String.valueOf(phoneNumber).length() != 10) {
-            JOptionPane.showMessageDialog(rootPane, "Phone number must be 10 digits.", "Invalid Phone Number", HEIGHT);
-            return;
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Phone Number: " + phoneNumber, "Success!", HEIGHT);
-        }
-    } catch (NumberFormatException ne) {
-        JOptionPane.showMessageDialog(rootPane, "Please enter valid numerical values for phone number.", "Failed! ", HEIGHT);
-        return;
-    }
+            if (phoneNumber.length() != 10 || phoneNumber.replaceAll("[0-9]", "").length()!=0) {
+                JOptionPane.showMessageDialog(rootPane, "Phone number must be 10 digits.", "Invalid Phone Number", HEIGHT);
+                return;
+            }
      
         //Validate Email
         if(email.isBlank()){
             JOptionPane.showMessageDialog(rootPane,"Please enter your email address.", "Oops!", HEIGHT);
             return;
-        } else {
-            JOptionPane.showMessageDialog(rootPane,"Email: " + email, "Success!", HEIGHT);
-         }
+        }
             JOptionPane.showMessageDialog(rootPane, 
                         "User Profile Information:\n" +  "First Name: " + firstName + "\n" + "Last Name: " + lastName + "\n" + "Gender: " + gender + "\n" +  "Age: " + age + "\n" + "Phone Number: " + phoneNumber + "\n" + "Email: " + email, "User Profile", JOptionPane.INFORMATION_MESSAGE, this.submittedPhoto.getIcon());
         
